@@ -6,7 +6,7 @@ import Cards from "./Cards";
 import Footer from "./Footer";
 
 const navigation = [
-  { name: "Product", href: "#", id: "products" },
+  { name: "Product", href: "#products" },
   { name: "Features", href: "#" },
   { name: "Marketplace", href: "#" },
   { name: "Company", href: "#" },
@@ -16,7 +16,7 @@ export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <div className="bg-white">
+    <div className="bg-white scroll-smooth">
       <nav
         className="flex items-center justify-between bg-cyan-800 px-9 py-4"
         aria-label="Global"
@@ -56,7 +56,7 @@ export default function Home() {
           {navigation.map((item) => (
             <a
               key={item.name}
-              href={item.id}
+              href={item.href}
               className="text-sm font-semibold leading-6 text-white"
             >
               {item.name}
@@ -75,7 +75,7 @@ export default function Home() {
 
       <main className="px-6 pt-6 lg:px-8">
         <Carousel />
-        <Products />
+        <Products id="products" />
         <Cards />
         <Footer />
       </main>

@@ -8,12 +8,12 @@ const Product = ({ type }) => {
   );
 };
 
-const Products = () => {
+const Products = ({id}) => {
   return (
     <section className="mt-16">
         <div className="text-4xl">Product Categories</div>
       <div>
-        <div className="grid grid-cols-6" id="products">
+        <div className="grid grid-cols-6" id={id}>
           <Product type="https://assets.myntassets.com/f_webp,w_122,c_limit,fl_progressive,dpr_2.0/assets/images/2022/2/23/aa4658b5-d723-4652-9ea1-00456b355c3a1645602467046-Kurta-Sets.jpg" />
           <Product type="https://assets.myntassets.com/f_webp,w_122,c_limit,fl_progressive,dpr_2.0/assets/images/2022/2/23/dd4414f8-4e1b-4a22-997e-8e06c0a5ff861645602467167-T-Shirts.jpg" />
           <Product type="https://assets.myntassets.com/f_webp,w_122,c_limit,fl_progressive,dpr_2.0/assets/images/2022/2/23/b34a30a6-504b-4c94-b7e1-61391d536bc51645602467038-Jewellery.jpg" />
