@@ -59,13 +59,13 @@ export default function Home() {
               href={item.href}
               className="text-sm font-semibold leading-6 text-white"
             >
-              {item.name}
+              {item.name} 
             </a>
           ))}
         </div>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           <a
-            href="bestcart/login"
+            href="/signup"
             className="text-sm font-semibold leading-6 text-white"
           >
             Log in
