@@ -1,13 +1,16 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const navigate = useNavigate();
+
   const [message, setMessage] = useState({
-    email_message: false,
-    password_message: false,
+    email_message: null,
+    password_message: null,
   });
 
   const data = localStorage.getItem("UserFormData");
-  const loginData = JSON.parse(data)
+  const loginData = JSON.parse(data);
 
   const checkEmail = (e) => {
     if (e.target.value === loginData.email) {
@@ -22,19 +25,36 @@ const Login = () => {
       });
     }
   };
+
   const checkPassword = (e) => {
-    if(e.target.value === loginData.password){
+    if (e.target.value === loginData.password) {
+      setMessage({
+        ...message,
+        password_message: false,
+      });
+    } else {
       setMessage({
         ...message,
         password_message: true,
-      })
+      });
     }
   };
 
-  const handleLogin = () => {
-    const data = localStorage.getItem("UserFormData");
-    // const password = localStorage.getItem("confirm_password");
-    // console.log(data.email, " ");
+  const handleLogin = (e) => {
+    // e.preventDefault();
+    console.log();
+    if (
+      message.email_message ||
+      message.password_message === true ||
+      message.email_message === null ||
+      message.password_message === null
+    ) {
+      alert("please enter valid login details");
+      console.log("Invalid details");
+    } else {
+      console.log("valid details.");
+      navigate("/");
+    }
   };
 
   return (

@@ -7,6 +7,7 @@ import SignUp from './Components/SignUp'
 import reportWebVitals from './reportWebVitals';
 import ErrorPage from './Components/ErrorPage';
 import Login from './Components/Home/Login';
+import Electronics from './Components/Products/Electronics';
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
   {
     path: "login",
     element: <Login />,
+  },
+  {
+    path: "electronics",
+    element: <Electronics />,
   },
 ])
 

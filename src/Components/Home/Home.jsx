@@ -1,13 +1,13 @@
 import { useState } from "react";
 import Carousel from "./Slider";
 import Products from "./Products";
-import { FaBeer } from "react-icons/fa";
 import Cards from "./Cards";
 import Footer from "./Footer";
+import { BsSearch } from "react-icons/bs";
 
 const navigation = [
   { name: "Product", href: "#products" },
-  { name: "Features", href: "#" },
+  { name: "Electronics", href: "/electronics" },
   { name: "Marketplace", href: "#" },
   { name: "Company", href: "#" },
 ];
@@ -46,12 +46,16 @@ export default function Home() {
         {/** mobile-view completed */}
 
         <div className="hidden lg:flex mr-12">
-          <input
-            placeholder="Search here.."
-            className="focus-visible:outline-none rounded pl-2 py-1"
-          />
+          <div className="flex">
+            <span className="px-2 -mr-1 pt-2 bg-white rounded-l">
+              <BsSearch className="flex-none" />
+            </span>
+            <input
+              placeholder="Search here.."
+              className="flex-initial focus-visible:outline-none rounded pl-2 py-1 w-72"
+            />
+          </div>
         </div>
-
         <div className="hidden lg:flex lg:gap-x-12">
           {navigation.map((item) => (
             <a
@@ -59,7 +63,7 @@ export default function Home() {
               href={item.href}
               className="text-sm font-semibold leading-6 text-white"
             >
-              {item.name} 
+              {item.name}
             </a>
           ))}
         </div>
@@ -68,7 +72,7 @@ export default function Home() {
             href="/signup"
             className="text-sm font-semibold leading-6 text-white"
           >
-            Log in
+            Sign Up
           </a>
         </div>
       </nav>
