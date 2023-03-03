@@ -82,21 +82,28 @@ const SignUp = () => {
   };
 
   const SendData = async (e) => {
-    localStorage.setItem("UserFormData", JSON.stringify(data));
+    localStorage.setItem("UserFormData", Object(data));
+
+    await fetch("https://dummyjson.com/products/1")
+    .then((response) => response.json())
+    .then((data) => console.log(data))
+    .catch((err) => console.log(err));
+
+    console.log("wrong");
 
     if (
       !message.email_message ||
       !message.confirm_password ||
       !message.confirm_password_message
     ) {
-        console.log("wrong")
-      await fetch("https://jsonplaceholder.typicode.com/posts", {
-        method: "POST",
-        body: JSON.stringify(data),
-        headers: { "Content-type": "applcation/json; charset='UTF-8'" },
-      })
-        .then((response) => response)
-        .then();
+
+      // await fetch("https://jsonplaceholder.typicode.com/posts", {
+      //   method: "POST",
+      //   body: JSON.stringify(data),
+      //   headers: { "Content-type": "applcation/json; charset='UTF-8'" },
+      // })
+      //   .then((response) => response)
+      //   .then();
     }
   };
   return (

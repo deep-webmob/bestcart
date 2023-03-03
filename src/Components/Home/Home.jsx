@@ -16,7 +16,7 @@ export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <div className="bg-white scroll-smooth">
+    <div className="bg-slate-100 scroll-smooth">
       <nav
         className="flex items-center justify-between bg-cyan-800 px-9 py-4"
         aria-label="Global"
