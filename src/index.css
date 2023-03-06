@@ -8,7 +8,7 @@ html {
 
 @font-face {
   font-family: gotham;
-  src: url(/home/wmt-pc-21/Practice/bestcart/Gotham-Font/GothamMedium.ttf);
+  src: url(../Gotham-Font/GothamMedium.ttf);
 }
 
 div {
