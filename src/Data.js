@@ -14,3 +14,44 @@ export const productData = [
 ];
 
 export const brandNames = ["realme", "POCO", "Infinix", "SAMSUNG", "Mi", "Apple"]
+
+export const customerRatings = ["4", "3", "2", "1"]
+
+export const ram = ["4 GB", "3 GB", "2 GB", "1 GB"]
+
+export const features = ["Wifi", "HD Rendering", "FM Player", "Music Player", "Bluetooth", "NFC", "USB", "GPRS"]
+
+export const productDetails = [
+  {
+    link: "https://rukminim1.flixcart.com/image/832/832/xif0q/mobile/p/f/u/-original-imagkgrxdsqpdznh.jpeg?q=70",
+    title: "Infinix HOT 20 Play (Racing black, 64 GB) (4 GB Ram)",
+    ratings: "4.4",
+    specifications: {
+      ram: "4 GB RAM | 64 GB ROM | Expandable upto 256 GB",
+      display: "17.32 cm (6.89 inch)  HD+ Display",
+      camera: "13MP + AI Lens | 8MP Front Camera",
+      battery: "6000 mAh Li-ion Polymer Battery",
+      processor: "MediaTek G37 Processor",
+      warranty: "1 year on Handset and 6 months on Accessories"
+    },
+    price: "8199",
+    originalPrice: "12000",
+    offers: "5% off on ICICI Bank Credit Card Transactions, up to 750, on orders of 5,000 and above"
+  },
+  {
+    link: "https://rukminim1.flixcart.com/image/832/832/xif0q/mobile/p/f/u/-original-imagkgrxdsqpdznh.jpeg?q=70",
+    title: "Infinix HOT 20 Play (Racing black, 64 GB) (4 GB Ram)",
+    ratings: "4.4",
+    specifications: {
+      ram: "4 GB RAM | 64 GB ROM | Expandable upto 256 GB",
+      display: "17.32 cm (6.89 inch)  HD+ Display",
+      camera: "13MP + AI Lens | 8MP Front Camera",
+      battery: "6000 mAh Li-ion Polymer Battery",
+      processor: "MediaTek G37 Processor",
+      warranty: "1 year on Handset and 6 months on Accessories"
+    },
+    price: "8009",
+    originalPrice: "13899",
+    offers: "5% off on ICICI Bank Credit Card Transactions, up to 750, on orders of 5,000 and above"
+  }
+]
