@@ -1,0 +1,11 @@
+.multi-range-slider {
+    box-shadow: none;
+    border:none
+}
+.multi-range-slider .ruler {
+    display: none;
+}
+
+.multi-range-slider .thumb .caption * {
+    background-color: #155E75;
+}
