@@ -1,3 +1,4 @@
+import moment from "moment";
 import React from "react";
 import { BsFacebook, BsTwitter, BsDribbble } from "react-icons/bs";
 import { FaInstagram, FaGithub } from "react-icons/fa";
@@ -5,7 +6,7 @@ import { FaInstagram, FaGithub } from "react-icons/fa";
 const FooterTabGroup = ({ heading, children }) => {
   return (
     <div className="col-span-1">
-      <p className="font-medium text-gray-900">{heading}</p>
+      <p className="font-medium text-gray-900 capitalize">{heading}</p>
       <nav aria-label="Footer Navigation - Services" className="mt-6">
         <ul className="space-y-4 text-sm">{children}</ul>
       </nav>
@@ -43,7 +44,7 @@ const SocialMediaIcons = ({ link, icon }) => {
   return (
     <li>
       <a
-        href={link}
+        href={`../${link}`}
         rel="noreferrer"
         target="_blank"
         className="text-gray-700 transition hover:opacity-75"
@@ -111,12 +112,13 @@ function Footer() {
           <div className="grid grid-cols-5 gap-16">
             {/** Services */}
 
-            <FooterTabGroup heading="Services">
-              <FooterTabs link="#" name="1on1 coaching" />
-              <FooterTabs link="#" name="company review" />
-              <FooterTabs link="#" name="accounts review" />
-              <FooterTabs link="#" name="HR consulting" />
-              <FooterTabs link="#" name="SEO optimization" />
+            <FooterTabGroup heading="online shopping">
+              <FooterTabs link="#" name="men" />
+              <FooterTabs link="#" name="women" />
+              <FooterTabs link="#" name="kids" />
+              <FooterTabs link="#" name="home & living" />
+              <FooterTabs link="#" name="beauty" />
+              <FooterTabs link="#" name="gift cards" />
             </FooterTabGroup>
 
             <FooterTabGroup heading="Company">
@@ -126,21 +128,24 @@ function Footer() {
             </FooterTabGroup>
 
             <FooterTabGroup heading="Helpful Links">
-              <FooterTabs link="#" name="contact" />
+              <FooterTabs link="#" name="blog" />
+              <FooterTabs link="#" name="career" />
+              <FooterTabs link="#" name="site map" />
+            </FooterTabGroup>
+
+            <FooterTabGroup heading="customer policies">
+              <FooterTabs link="#" name="Contact Us" />
               <FooterTabs link="#" name="FAQ" />
-              <FooterTabs link="#" name="live chat" />
+              <FooterTabs link="#" name="T & C" />
+              <FooterTabs link="#" name="Terms of Use" />
             </FooterTabGroup>
 
-            <FooterTabGroup heading="legal">
-              <FooterTabs link="#" name="accessibility" />
-              <FooterTabs link="#" name="return policy" />
-              <FooterTabs link="#" name="refund policy" />
-              <FooterTabs link="#" name="hiring statistics" />
-            </FooterTabGroup>
-
-            <FooterTabGroup heading="downloads">
-              <FooterTabs link="#" name="marketing calender" />
-              <FooterTabs link="#" name="SEO infographics" />
+            <FooterTabGroup heading="Services">
+              <FooterTabs link="#" name="Track Orders" />
+              <FooterTabs link="#" name="Shipping" />
+              <FooterTabs link="#" name="Cancellation" />
+              <FooterTabs link="#" name="Returns" />
+              <FooterTabs link="#" name="Privacy Policy" />
             </FooterTabGroup>
 
             {/** Social media icons */}
@@ -150,19 +155,19 @@ function Footer() {
                 icon={<BsFacebook className="h-6 w-6" />}
               />
               <SocialMediaIcons
-                link="www.facebook.com"
+                link="www.instagram.com"
                 icon={<FaInstagram className="h-6 w-6" />}
               />
               <SocialMediaIcons
-                link="www.facebook.com"
+                link="www.twitter.com"
                 icon={<BsTwitter className="h-6 w-6" />}
               />
               <SocialMediaIcons
-                link="www.facebook.com"
+                link="www.github.com"
                 icon={<FaGithub className="h-6 w-6" />}
               />
               <SocialMediaIcons
-                link="www.facebook.com"
+                link="www.dribbble.com"
                 icon={<BsDribbble className="h-6 w-6" />}
               />
             </ul>
@@ -172,7 +177,8 @@ function Footer() {
         <div className="mt-8 border-t border-gray-100 pt-8">
           <div className="sm:flex sm:justify-between">
             <p className="text-xs text-gray-500">
-              &copy; 2023. Company Name. All rights reserved.
+              &copy; {moment().format("YYYY")}. Company Name. All rights
+              reserved.
             </p>
 
             <nav

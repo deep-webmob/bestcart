@@ -168,10 +168,10 @@ const ProductList = () => {
     <section>
       {productDetails.map((product) => {
         return (
-          <div className="grid grid-cols-4 my-2">
+          <a className="grid grid-cols-4 my-5" href={`electronics/details/${product.id}`}>
             {/**col-1 */}
             <div>
-              <img src={product.link} alt="" className="h-60" />
+              <img src={product.link} alt="" className="h-60 mx-auto" />
             </div>
 
             {/**col-2 & 3 */}
@@ -213,9 +213,9 @@ const ProductList = () => {
                   )}
                 % off
               </span>
-              <div>{product.offers}</div>
+              {/* <div>{product.offers}</div> */}
             </div>
-          </div>
+          </a>
         );
       })}
     </section>
@@ -231,8 +231,8 @@ const Electronics = () => {
         <RangeFilter />
         <Brand />
         <CustomerRatings />
-        {/* <RAM /> */}
-        {/* <Features /> */}
+        <RAM />
+        <Features />
       </div>
       {/** filtered product list */}
       <div className="mx-3 col-span-4">

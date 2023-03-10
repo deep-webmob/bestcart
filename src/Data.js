@@ -1,3 +1,9 @@
+export const sliderData = [
+  "https://images-eu.ssl-images-amazon.com/images/G/31/img19/AmazonPay/Boson/Sid/CCBP/withouttag/Credit-Card-Bill_1500x300_PC-OLP.jpg",
+  "https://images-eu.ssl-images-amazon.com/images/G/31/img19/AmazonPay/Surbhi/2021/MAY/MAYGTM/Headers/header_pc_1.jpg",
+  "https://assets.myntassets.com/f_webp,w_980,c_limit,fl_progressive,dpr_2.0/assets/images/2022/6/27/53b4daed-cd2c-4111-86c5-14f737eceb351656325318973-Handbags_Desk.jpg",
+];
+
 export const productData = [
   "https://assets.myntassets.com/f_webp,w_122,c_limit,fl_progressive,dpr_2.0/assets/images/2022/2/23/aa4658b5-d723-4652-9ea1-00456b355c3a1645602467046-Kurta-Sets.jpg",
   "https://assets.myntassets.com/f_webp,w_122,c_limit,fl_progressive,dpr_2.0/assets/images/2022/2/23/dd4414f8-4e1b-4a22-997e-8e06c0a5ff861645602467167-T-Shirts.jpg",
@@ -13,18 +19,35 @@ export const productData = [
   "https://assets.myntassets.com/f_webp,w_122,c_limit,fl_progressive,dpr_2.0/assets/images/2022/2/23/67783047-7fcc-4530-9368-9be75a713e411645602466995-Dresses.jpg",
 ];
 
-export const brandNames = ["realme", "POCO", "Infinix", "SAMSUNG", "Mi", "Apple"]
+export const brandNames = [
+  "realme",
+  "POCO",
+  "Infinix",
+  "SAMSUNG",
+  "Mi",
+  "Apple",
+];
 
-export const customerRatings = ["4", "3", "2", "1"]
+export const customerRatings = ["4", "3", "2", "1"];
 
-export const ram = ["4 GB", "3 GB", "2 GB", "1 GB"]
+export const ram = ["4 GB", "3 GB", "2 GB", "1 GB"];
 
-export const features = ["Wifi", "HD Rendering", "FM Player", "Music Player", "Bluetooth", "NFC", "USB", "GPRS"]
+export const features = [
+  "Wifi",
+  "HD Rendering",
+  "FM Player",
+  "Music Player",
+  "Bluetooth",
+  "NFC",
+  "USB",
+  "GPRS",
+];
 
 export const productDetails = [
   {
-    link: "https://rukminim1.flixcart.com/image/832/832/xif0q/mobile/p/f/u/-original-imagkgrxdsqpdznh.jpeg?q=70",
-    title: "Infinix HOT 20 Play (Racing black, 64 GB) (4 GB Ram)",
+    id: "1",
+    link: "https://rukminim1.flixcart.com/image/416/416/xif0q/mobile/m/q/e/-original-imagk4nz6xgtexam.jpeg?q=70",
+    title: "Infinix HOT 20 Play (Racing black, 64 GB) (4 GB RAM)",
     ratings: "4.4",
     specifications: {
       ram: "4 GB RAM | 64 GB ROM | Expandable upto 256 GB",
@@ -32,15 +55,20 @@ export const productDetails = [
       camera: "13MP + AI Lens | 8MP Front Camera",
       battery: "6000 mAh Li-ion Polymer Battery",
       processor: "MediaTek G37 Processor",
-      warranty: "1 year on Handset and 6 months on Accessories"
+      warranty: "1 year on Handset and 6 months on Accessories",
     },
     price: "8199",
     originalPrice: "12000",
-    offers: "5% off on ICICI Bank Credit Card Transactions, up to 750, on orders of 5,000 and above"
+    offers: [
+      "5% off on ICICI Bank Credit Card Transactions, up to 750, on orders of 5,000 and above",
+      "Bank Offer 5% Cashback on Flipkart Axis Bank Card",
+      "Bank Offer ₹250 Off On ICICI bank Credit Card Transactions",
+    ],
   },
   {
-    link: "https://rukminim1.flixcart.com/image/832/832/xif0q/mobile/p/f/u/-original-imagkgrxdsqpdznh.jpeg?q=70",
-    title: "Infinix HOT 20 Play (Racing black, 64 GB) (4 GB Ram)",
+    id: "2",
+    link: "https://rukminim1.flixcart.com/image/416/416/xif0q/mobile/x/x/s/-original-imagfhu6dcpdnqkh.jpeg?q=70",
+    title: "Infinix HOT 20 Play (Racing black, 64 GB) (4 GB RAM)",
     ratings: "4.4",
     specifications: {
       ram: "4 GB RAM | 64 GB ROM | Expandable upto 256 GB",
@@ -48,10 +76,35 @@ export const productDetails = [
       camera: "13MP + AI Lens | 8MP Front Camera",
       battery: "6000 mAh Li-ion Polymer Battery",
       processor: "MediaTek G37 Processor",
-      warranty: "1 year on Handset and 6 months on Accessories"
+      warranty: "1 year on Handset and 6 months on Accessories",
     },
     price: "8009",
     originalPrice: "13899",
-    offers: "5% off on ICICI Bank Credit Card Transactions, up to 750, on orders of 5,000 and above"
-  }
-]
+    offers: [
+      "5% off on ICICI Bank Credit Card Transactions, up to 750, on orders of 5,000 and above",
+      "Bank Offer 5% Cashback on Flipkart Axis Bank Card",
+      "Bank Offer ₹250 Off On ICICI bank Credit Card Transactions",
+    ],
+  },
+  {
+    id: "3",
+    link: "https://rukminim1.flixcart.com/image/416/416/xif0q/mobile/g/p/x/-original-imagk4nz54s7a7rf.jpeg?q=70 ",
+    title: "Infinix HOT 20 Play (Racing black, 64 GB) (4 GB RAM)",
+    ratings: "4.4",
+    specifications: {
+      ram: "4 GB RAM | 64 GB ROM | Expandable upto 256 GB",
+      display: "17.32 cm (6.89 inch)  HD+ Display",
+      camera: "13MP + AI Lens | 8MP Front Camera",
+      battery: "6000 mAh Li-ion Polymer Battery",
+      processor: "MediaTek G37 Processor",
+      warranty: "1 year on Handset and 6 months on Accessories",
+    },
+    price: "8009",
+    originalPrice: "13899",
+    offers: [
+      "5% off on ICICI Bank Credit Card Transactions, up to 750, on orders of 5,000 and above",
+      "Bank Offer 5% Cashback on Flipkart Axis Bank Card",
+      "Bank Offer ₹250 Off On ICICI bank Credit Card Transactions",
+    ],
+  },
+];
