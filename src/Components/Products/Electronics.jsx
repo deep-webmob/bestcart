@@ -1,5 +1,5 @@
-import React, { useEffect, useState, createContext, useContext } from "react";
-import { BsSearch, BsFillStarFill } from "react-icons/bs";
+import React, { useEffect, useState } from "react";
+import { BsSearch, BsFillStarFill, BsStarFill } from "react-icons/bs";
 import { BiChevronDown, BiChevronUp } from "react-icons/bi";
 import {
   brandNames,
@@ -11,7 +11,6 @@ import {
 import { currencyFormatter } from "../utils";
 import MultiRangeSlider from "multi-range-slider-react";
 import "../utils.css";
-const UserContext = createContext();
 
 const RangeFilter = () => {
   const [minValue, setMinValue] = useState(30);
@@ -20,12 +19,6 @@ const RangeFilter = () => {
     <div className="mt-2">
       <label>Price</label>
       <div className="shadow-none">
-        {/* <input
-          type="range"
-          value={rangeValue}
-          onChange={(e) => setRangeValue(e.target.value)}
-          className="w-full"
-        /> */}
         <MultiRangeSlider
           min={0}
           max={100}
@@ -49,11 +42,10 @@ const RangeFilter = () => {
   );
 };
 
-const CategoryTitle = ({ title, status }) => {
+const CategoryTitle = ({ title, status, onClick }) => {
   const [show, setShow] = useState(true);
   return (
-    <UserContext.Provider value={show}>
-      <div>
+      <div onClick={onClick}>
         <hr className="border-t-2 text-slate-700" />
         <div className="flex justify-between mt-4">
           <h1 className="uppercase">{title}</h1>
@@ -75,7 +67,6 @@ const CategoryTitle = ({ title, status }) => {
           )}
         </div>
       </div>
-    </UserContext.Provider>
   );
 };
 
@@ -100,19 +91,19 @@ const FilterData = ({ data, star }) => {
 
 const Brand = () => {
   const [branddata, setBrandData] = useState(brandNames);
+  const [show, setShow] = useState(true);
+
   const searchBrands = (e) => {
-    const searchValue = e.target.value;
     const results = brandNames.filter((brand) => {
-      return brand.toLowerCase().includes(searchValue.toLowerCase());
+      return brand.toLowerCase().includes(e.target.value.toLowerCase());
     });
     setBrandData(results);
   };
 
-  const showData = useContext(UserContext);
   return (
     <section>
-      <CategoryTitle title="brand" />
-      {showData && (
+      <CategoryTitle title="brand" onClick={() => setShow(!show)} />
+      {show && (
         <div>
           <div className="flex">
             <BsSearch className="mt-1 mr-1 w-3" />
@@ -130,35 +121,13 @@ const Brand = () => {
   );
 };
 
-const CustomerRatings = () => {
-  const showData = useContext(UserContext);
-  console.log(showData);
-  return (
-    <section>
-      <div>
-        <CategoryTitle title="customer ratings" />
-        {!showData && (
-          <FilterData data={customerRatings} star={<BsFillStarFill />} />
-        )}
-      </div>
-    </section>
-  );
-};
-
-const RAM = () => {
+const Filter = (props) => {
+  const { data, title, star } = props;
+  const [show, setShow] = useState(true);
   return (
     <div>
-      <CategoryTitle title="RAM" />
-      <FilterData data={ram} />
-    </div>
-  );
-};
-
-const Features = () => {
-  return (
-    <div>
-      <CategoryTitle title="features" />
-      <FilterData data={features} />
+      <CategoryTitle title={title} onClick={() => setShow(!show)} />
+      {show && <FilterData data={data} star={star} />}
     </div>
   );
 };
@@ -168,7 +137,10 @@ const ProductList = () => {
     <section>
       {productDetails.map((product) => {
         return (
-          <a className="grid grid-cols-4 my-5" href={`electronics/details/${product.id}`}>
+          <a
+            className="grid grid-cols-4 my-5"
+            href={`electronics/details/${product.id}`}
+          >
             {/**col-1 */}
             <div>
               <img src={product.link} alt="" className="h-60 mx-auto" />
@@ -230,9 +202,9 @@ const Electronics = () => {
         <h2 className="text-3xl">Filters</h2>
         <RangeFilter />
         <Brand />
-        <CustomerRatings />
-        <RAM />
-        <Features />
+        <Filter title="RAM" data={ram} />
+        <Filter title="Customer Ratings" data={customerRatings} star={<BsStarFill />}/>
+        <Filter title="Features" data={features} />
       </div>
       {/** filtered product list */}
       <div className="mx-3 col-span-4">
