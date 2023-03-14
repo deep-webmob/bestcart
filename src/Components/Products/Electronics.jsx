@@ -1,16 +1,17 @@
-import React, { useEffect, useState } from "react";
-import { BsSearch, BsFillStarFill, BsStarFill } from "react-icons/bs";
+import React, { useState } from "react";
+import { BsSearch, BsStarFill } from "react-icons/bs";
 import { BiChevronDown, BiChevronUp } from "react-icons/bi";
 import {
   brandNames,
   customerRatings,
   features,
-  productDetails,
   ram,
 } from "../../Data";
-import { currencyFormatter } from "../utils";
+import { currencyFormatter } from "../../utils/utils";
 import MultiRangeSlider from "multi-range-slider-react";
-import "../utils.css";
+import "../../utils/utils.css";
+
+import ProductList from "./ProductList";
 
 const RangeFilter = () => {
   const [minValue, setMinValue] = useState(30);
@@ -45,28 +46,28 @@ const RangeFilter = () => {
 const CategoryTitle = ({ title, status, onClick }) => {
   const [show, setShow] = useState(true);
   return (
-      <div onClick={onClick}>
-        <hr className="border-t-2 text-slate-700" />
-        <div className="flex justify-between mt-4">
-          <h1 className="uppercase">{title}</h1>
-          {show && (
-            <span
-              className="text-2xl cursor-pointer"
-              onClick={() => setShow(false)}
-            >
-              <BiChevronUp />
-            </span>
-          )}
-          {!show && (
-            <span
-              className="text-2xl cursor-pointer"
-              onClick={() => setShow(true)}
-            >
-              <BiChevronDown />
-            </span>
-          )}
-        </div>
+    <div onClick={onClick}>
+      <hr className="border-t-2 text-slate-700" />
+      <div className="flex justify-between mt-4">
+        <h1 className="uppercase">{title}</h1>
+        {show && (
+          <span
+            className="text-2xl cursor-pointer"
+            onClick={() => setShow(false)}
+          >
+            <BiChevronUp />
+          </span>
+        )}
+        {!show && (
+          <span
+            className="text-2xl cursor-pointer"
+            onClick={() => setShow(true)}
+          >
+            <BiChevronDown />
+          </span>
+        )}
       </div>
+    </div>
   );
 };
 
@@ -74,7 +75,7 @@ const FilterData = ({ data, star }) => {
   return (
     <div>
       {data.map((name) => (
-        <div className="flex">
+        <div className="flex" key={name}>
           <input type="checkbox" className="mr-2" />
           <p>{name}</p>
           {star ? (
@@ -132,67 +133,7 @@ const Filter = (props) => {
   );
 };
 
-const ProductList = () => {
-  return (
-    <section>
-      {productDetails.map((product) => {
-        return (
-          <a
-            className="grid grid-cols-4 my-5"
-            href={`electronics/details/${product.id}`}
-          >
-            {/**col-1 */}
-            <div>
-              <img src={product.link} alt="" className="h-60 mx-auto" />
-            </div>
 
-            {/**col-2 & 3 */}
-            <div className="col-span-2">
-              {/** product title */}
-              <h2>{product.title}</h2>
-
-              {/** product ratings */}
-              <div className="flex bg-green-600 w-fit rounded text-slate-100 py-1 px-2">
-                <span className="">{product.ratings}</span>
-                <small className="mt-1 ml-2">
-                  <BsFillStarFill />
-                </small>
-              </div>
-
-              {/** product specifications */}
-              <ul className="text-sm list-disc mt-1">
-                <li>{product.specifications.ram}</li>
-                <li>{product.specifications.display}</li>
-                <li>{product.specifications.camera}</li>
-                <li>{product.specifications.battery}</li>
-                <li>{product.specifications.processor}</li>
-                <li>{product.specifications.warranty}</li>
-              </ul>
-            </div>
-
-            {/**col-4 */}
-            <div>
-              <div className="text-lg font-semibold">
-                {currencyFormatter(product.price)}
-              </div>
-              <del className="text-sm">
-                {currencyFormatter(product.originalPrice)}
-              </del>
-              <span className="ml-2 text-green-600">
-                {100 -
-                  ((product.price * 100) / product.originalPrice).toPrecision(
-                    2
-                  )}
-                % off
-              </span>
-              {/* <div>{product.offers}</div> */}
-            </div>
-          </a>
-        );
-      })}
-    </section>
-  );
-};
 
 const Electronics = () => {
   return (
@@ -203,7 +144,11 @@ const Electronics = () => {
         <RangeFilter />
         <Brand />
         <Filter title="RAM" data={ram} />
-        <Filter title="Customer Ratings" data={customerRatings} star={<BsStarFill />}/>
+        <Filter
+          title="Customer Ratings"
+          data={customerRatings}
+          star={<BsStarFill />}
+        />
         <Filter title="Features" data={features} />
       </div>
       {/** filtered product list */}

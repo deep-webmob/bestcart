@@ -1,11 +1,10 @@
 import React from "react";
 import { productData } from "../../Data.js";
 
-
 const Product = ({ type }) => {
   return (
     <div className="mr-3 my-3 m-3">
-      <img src={type} />
+      <img src={type} alt=""/>
     </div>
   );
 };

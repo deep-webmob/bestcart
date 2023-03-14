@@ -6,7 +6,7 @@ import { sliderData } from "../../Data";
 const slider = (
   <AwesomeSlider className="h-96 mt-8">
     {sliderData.map((link) => {
-      return <div data-src={link} />;
+      return <div data-src={link} key={link} />;
     })}
   </AwesomeSlider>
 );
