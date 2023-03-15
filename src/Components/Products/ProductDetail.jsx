@@ -54,7 +54,7 @@ const ProductDetail = () => {
 
           {/** product ratings */}
           <div className="flex bg-green-600 w-fit rounded text-slate-100 py-1 px-2">
-            {/* <span className="">{product.rating.rate}</span> */}
+            <span className="">{products?.rating?.rate}</span>
             <small className="mt-1 ml-2">
               <BsFillStarFill />
             </small>

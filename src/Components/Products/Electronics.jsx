@@ -1,17 +1,13 @@
 import React, { useState } from "react";
 import { BsSearch, BsStarFill } from "react-icons/bs";
 import { BiChevronDown, BiChevronUp } from "react-icons/bi";
-import {
-  brandNames,
-  customerRatings,
-  features,
-  ram,
-} from "../../Data";
+import { brandNames, customerRatings, features, ram } from "../../Data";
 import { currencyFormatter } from "../../utils/utils";
 import MultiRangeSlider from "multi-range-slider-react";
 import "../../utils/utils.css";
 
 import ProductList from "./ProductList";
+import { ProductListAPI } from "../../api/productList";
 
 const RangeFilter = () => {
   const [minValue, setMinValue] = useState(30);
@@ -71,21 +67,39 @@ const CategoryTitle = ({ title, status, onClick }) => {
   );
 };
 
-const FilterData = ({ data, star }) => {
+export const filterAPICall = async (check, name) => {
+  const queryString = `&check=${check}&name=${name}`;
+  if (check) {
+    try {
+      const filterDataCall = await ProductListAPI(queryString);
+      console.log(filterDataCall);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+};
+
+const FilterData = ({ data, star, filters, setFilters }) => {
   return (
     <div>
-      {data.map((name) => (
-        <div className="flex" key={name}>
-          <input type="checkbox" className="mr-2" />
-          <p>{name}</p>
-          {star ? (
-            <div className="flex">
-              <span className="mt-1 mx-1">{star}</span>
-              <span>&above</span>
-            </div>
-          ) : null}
-        </div>
-      ))}
+      {data.map((name) => {
+        return (
+          <div className="flex" key={name}>
+            <input
+              type="checkbox"
+              onClick={(e) => filterAPICall(e.target.checked, name)}
+              className="mr-2"
+            />
+            <p>{name}</p>
+            {star ? (
+              <div className="flex">
+                <span className="mt-1 mx-1">{star}</span>
+                <span>&above</span>
+              </div>
+            ) : null}
+          </div>
+        );
+      })}
     </div>
   );
 };
@@ -123,19 +137,34 @@ const Brand = () => {
 };
 
 const Filter = (props) => {
-  const { data, title, star } = props;
+  const { data, title, star, filters, setFilters } = props;
   const [show, setShow] = useState(true);
   return (
     <div>
       <CategoryTitle title={title} onClick={() => setShow(!show)} />
-      {show && <FilterData data={data} star={star} />}
+      {show && (
+        <FilterData
+          data={data}
+          star={star}
+          filters={filters}
+          setFilters={setFilters}
+        />
+      )}
     </div>
   );
 };
 
-
-
 const Electronics = () => {
+  const [filters, setFilters] = useState({
+    price: {
+      min: "",
+      max: "",
+    },
+    brand: [],
+    ram: [],
+    ratings: [],
+    features: [],
+  });
   return (
     <section className="grid grid-cols-5">
       {/** side panel */}
@@ -143,7 +172,12 @@ const Electronics = () => {
         <h2 className="text-3xl">Filters</h2>
         <RangeFilter />
         <Brand />
-        <Filter title="RAM" data={ram} />
+        <Filter
+          title="RAM"
+          data={ram}
+          filters={filters}
+          setFilters={setFilters}
+        />
         <Filter
           title="Customer Ratings"
           data={customerRatings}
