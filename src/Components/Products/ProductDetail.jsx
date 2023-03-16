@@ -33,7 +33,7 @@ const ProductDetail = () => {
         {/**col-1 */}
         <div className="col-span-2">
           <img
-            src={products?.image}
+            src={products?.link}
             alt=""
             className="h-96 flex place-self-center mb-5 mx-auto"
           />
@@ -60,14 +60,14 @@ const ProductDetail = () => {
             </small>
           </div>
           {/** product specifications */}
-          {/* <ul className="text-sm list-disc mt-1">
-                  <li>{product.specifications.ram}</li>
-                  <li>{product.specifications.display}</li>
-                  <li>{product.specifications.camera}</li>
-                  <li>{product.specifications.battery}</li>
-                  <li>{product.specifications.processor}</li>
-                  <li>{product.specifications.warranty}</li>
-                </ul> */}
+          <ul className="text-sm list-disc mt-1">
+            <li>{products?.specifications?.ram}</li>
+            <li>{products?.specifications?.display}</li>
+            <li>{products?.specifications?.camera}</li>
+            <li>{products?.specifications?.battery}</li>
+            <li>{products?.specifications?.processor}</li>
+            <li>{products?.specifications?.warranty}</li>
+          </ul>
           <div>
             {/** Price Section */}
             <div>

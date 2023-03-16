@@ -91,9 +91,7 @@ const ProductList = () => {
                 {currencyFormatter(product?.price)}
               </div>
               <del className="text-sm">
-                {currencyFormatter(
-                  product?.originalPrice ? "original" : "fake"
-                )}
+                {currencyFormatter(product?.originalPrice)}
               </del>
               <span className="ml-2 text-green-600">
                 {100 -
